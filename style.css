@@ -131,3 +131,25 @@ aside li {
 footer {
   margin-top: 10px;
 }
+
+
+@media screen and (max-width: 640px) {
+  nav {
+    margin-bottom: 1rem;
+    height: auto;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+  }
+  main {
+    display:flex;
+    flex-direction: column;
+  }
+  main aside {
+    margin: 1rem 0;
+  }
+  footer {
+    margin-top: 0;
+  }
+}
