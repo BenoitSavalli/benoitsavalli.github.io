@@ -1,0 +1,13 @@
+@import url("mainStyleFile.css");
+
+#carousel {
+	z-index: 2;
+}
+
+#carousel > img {
+	transition: all .5s;
+}
+
+#carousel > img:hover {
+	transform: scale(2);
+}
