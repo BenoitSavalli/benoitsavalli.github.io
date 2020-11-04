@@ -130,7 +130,7 @@ $(document).ready(function () {
 
                 var divHeight = parseInt(dataElementClass.height.split("px")[0], 10); //On prends la hauteur parmis les propriété CSS, on change le string en numerique, et on enleve 'px'
 
-                y = y + divHeight + 32; //On rajoute la padding
+                y = y + divHeight + 0;//32; //On rajoute la padding
             }
 
 
@@ -168,7 +168,7 @@ $(document).ready(function () {
             });
             idd = idd - 1
 
-            tabTopSection[idd] = tabTopSection[idd] + 32 + x; //Margin *2   ,   On descends de la valeur x
+            tabTopSection[idd] = tabTopSection[idd] + 0/*32*/ + x; //Margin *2   ,   On descends de la valeur x
 
 
             $('.' + b).css('top', tabTopSection[idd] + "px"); // Application du nouveau top a la section qui descends
