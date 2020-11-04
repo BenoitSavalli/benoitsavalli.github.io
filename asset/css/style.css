@@ -1124,7 +1124,7 @@ footer i {
 }
 
 .w-400 {
-    min-width: 400px;
+    min-width: 350px;
 }
 .w-100 {
     width: 100%;
@@ -1173,7 +1173,14 @@ footer i {
 /*Navigation interne*/
 .navigation ul li{
     transition: all .3s;
+    padding: 1em 0;
 }
+
+.navigation ul li:hover{
+    padding-left: .75em;
+    background-color: #eee;
+}
+
 section{
     transition: all 1s;
 }
