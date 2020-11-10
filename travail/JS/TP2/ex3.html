@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP2 - JS</title>
+</head>
+<body>
+    
+    <canvas id="canvas" width="600" height="600" style="border: 30px solid gray; margin: 50px auto; display: block; background-color: rgb(221, 221, 221);"></canvas>
+
+    <script>
+        window.addEventListener("load", (event) => {
+            setTimeout(function(){
+                start();
+            }, 2000) // Delay de 2 secondes
+
+            function start() {
+                let canvas = document.getElementById("canvas");
+                let ctx = canvas.getContext("2d");
+                let x = 0;
+                let y = 0;
+                let dx = 10;
+                let dy = 10;
+
+                function drawBall() {
+                    ctx.beginPath();
+                    //ctx.arc(x, y, 10, 0, Math.PI*2); // Faire un cercle
+                    ctx.fillRect(x,y,dx,dx);
+                    ctx.fillStyle = "#FF0000";
+                    ctx.fill();
+                    ctx.closePath();
+                }
+
+                function draw() {
+                    if (x >= canvas.width) {
+                        ctx.clearRect(0, 0, canvas.width, canvas.height);
+                        drawBall();
+                        x = 0;
+                    } else {
+                        ctx.clearRect(0, 0, canvas.width, canvas.height);
+                        drawBall();
+                        x += dx;
+                        y += dy;
+                    }
+                }
+
+                setInterval(draw, 10);
+            }
+        });
+    </script>
+
+</body>
+</html>
