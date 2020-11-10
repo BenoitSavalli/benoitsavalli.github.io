@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,20 +7,40 @@
 </head>
 <body>
     
-    <p id="textID"></p>
+    <canvas id="canvas" width="900" height="600" style="border: 30px solid gray; margin: 50px auto; display: block; background-color: rgb(221, 221, 221);"></canvas>
 
     <script>
         window.addEventListener("load", (event) => {
-            let time = 0;
+            let canvas = document.getElementById("canvas");
+            let ctx = canvas.getContext("2d");
+            let x = 0;
+            let y = canvas.height/2;
+            let dx = 10;
+            let dy = 0;
 
-            let timeOut = window.setInterval(function()
-            {
-                if (time >= 10) {
-                    clearInterval(timeOut);
+            function drawBall() {
+                ctx.beginPath();
+                //ctx.arc(x, y, 10, 0, Math.PI*2); // Faire un cercle
+                ctx.fillRect(x,y,dx,dx);
+                ctx.fillStyle = "#FF0000";
+                ctx.fill();
+                ctx.closePath();
+            }
+
+            function draw() {
+                if (x >= canvas.width) {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    drawBall();
+                    x = 0;
+                } else {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    drawBall();
+                    x += dx;
+                    y += dy;
                 }
-                document.getElementById('textID').innerHTML = 10 - time;
-                time += 1;
-            }, 1000);
+            }
+
+            setInterval(draw, 10);
         });
     </script>
 
