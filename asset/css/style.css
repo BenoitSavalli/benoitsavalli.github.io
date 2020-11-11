@@ -1150,6 +1150,8 @@ footer i {
 
 #deplace-contenu section {
     padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 1em;
 }
 
 #deplace-contenu p {
@@ -1214,4 +1216,25 @@ section{
 .rel section{
     position: relative;
     top: 0;
+}
+
+#deplace-contenu section {
+    background-color: transparent;
+}
+
+.child_row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.child_row > div {
+    border: 2px solid gainsboro;
+    padding: .5em;
+    transition: 1s all;
+}
+
+.child_row > div:hover{
+    transform-origin: left;
+    transform: rotateY(-20deg) skewY(5.7deg) scale(.8) translateX(1em);
+    box-shadow: .5em 0 1em #000;
 }
