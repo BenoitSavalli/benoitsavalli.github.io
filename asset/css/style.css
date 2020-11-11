@@ -1235,6 +1235,7 @@ section{
 
 .child_row > div:hover{
     transform-origin: left;
-    transform: rotateY(-20deg) skewY(5.7deg) scale(.8) translateX(1em);
+    /*transform: rotateY(-20deg) skewY(5.7deg) scale(.9) translateX(1em);*/
+    transform: rotateY(-15deg) skewY(1deg) translateX(.5em) scale(.95);
     box-shadow: .5em 0 1em #000;
 }
