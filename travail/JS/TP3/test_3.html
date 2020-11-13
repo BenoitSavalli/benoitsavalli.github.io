@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP3 - JS</title>
+</head>
+<body>
+    <div id="animatedElem"></div>
+
+    <style>
+        body {
+            height: 100vh;
+            width: 100vw;
+        }
+
+        #animatedElem {
+            width: 10px;
+            height: 10px;
+            background-color: #FF0000;
+            position: relative;
+        }
+    </style>
+
+
+    <script>
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+                              window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+
+        var elem = document.getElementById("animatedElem");
+        var left = 0;
+        var moveTo = 400;
+        var pxF = 100;
+        var vitesse = 1000 / pxF;
+
+        var start = null;
+
+        function step(timestamp) {
+            var progress;
+            if (start === null) start = timestamp;
+            progress = timestamp - start;
+            elem.style.left = Math.min(progress/vitesse, moveTo) + "px";
+            if (left < moveTo) {
+                requestAnimationFrame(step);
+            }
+        }
+
+        requestAnimationFrame(step);
+    </script>
+</body>
+</html>
