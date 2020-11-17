@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP3 - JS</title>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="600" style="border: 30px solid gray; margin: 50px auto; display: block; background-color: rgb(221, 221, 221);"></canvas>
+
+    <script>
+        var i = -1;
+        var coinSize = 44;
+
+        var sx = -coinSize;
+        
+
+        var mainloop = function() {
+            updateGame();
+            drawGame();
+        };
+
+        var animFrame = window.requestAnimationFrame ||
+                window.webkitRequestAnimationFrame   ||
+                window.mozRequestAnimationFrame      ||
+                window.oRequestAnimationFrame        ||
+                window.msRequestAnimationFrame       ||
+                null ;
+
+        var recursiveAnim = function() {
+            mainloop();
+            setTimeout(function(){
+                animFrame( recursiveAnim );
+            }, 100)
+            
+        };
+
+        // start the mainloop
+        animFrame( recursiveAnim );
+
+        function drawGame() {
+            var ctx = document.getElementById('canvas').getContext('2d');
+            var img = new Image();
+            
+            img.src = 'coin-sprite-animation-sprite-sheet.png';
+
+            img.onload = function() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(img, sx+=coinSize, 0, coinSize, img.height, 0, 0, coinSize, img.height);
+                if (sx >= img.width - coinSize) {
+                    sx = 0;
+                }
+            };
+        }
+
+        function updateGame() {
+            i++;
+        }
+    </script>
+</body>
+</html>

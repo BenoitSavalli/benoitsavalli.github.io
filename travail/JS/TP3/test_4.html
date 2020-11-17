@@ -40,7 +40,9 @@
             if (start === null) start = timestamp;
             progress = timestamp - start;
             elem.style.left = Math.min(progress/vitesse, moveTo) + "px";
-            requestAnimationFrame(step);
+            if (left < moveTo) {
+                requestAnimationFrame(step);
+            }
         }
 
         requestAnimationFrame(step);
