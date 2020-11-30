@@ -1,7 +1,7 @@
 let cacheName = "test";
 
 let cacheRessource = [
-    '/tp/tpJS_5/sw/',
+    '/travail/JS/TP5/',
     'https://cors-anywhere.herokuapp.com/' + 'https://planning.univ-rennes1.fr/jsp/custom/modules/plannings/9EYlGR3a.shu'
 ]
 
